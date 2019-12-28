@@ -15,7 +15,7 @@ const MyComponentRoot: React.FC = () => {
     }, 1000);
     // コールバック関数をreturnすると、アンマウント時or useEffectに与えた関数実行時に実行される
     return () => clearTimeout(timerId);
-  });
+  }, [count]); // useEffectの第二引数にはこの第一引数のコールバック関数が呼び出されてほしい条件を指定できる。配列で値を渡すことでその値に変化があった時のみ関数が呼び出される。指定しない場合は毎回呼び出される
 
   const handleClick = (): void => {
     // コールバックを使わない場合
